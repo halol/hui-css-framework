@@ -1,0 +1,118 @@
+// grid.less
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+}
+*:after {
+    content: " ";
+    display: table;
+}
+
+.container {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	//padding-left:  (@grid-gutter-width / 2);
+	//padding-right: (@grid-gutter-width / 2);
+	.clearfix();
+}
+
+.row {
+	//margin-left:  (@grid-gutter-width / -2);
+	//margin-right: (@grid-gutter-width / -2);
+	.clearfix();
+	margin-bottom: @margin-bottom/2;
+	
+}
+div.test {
+	background: white;
+}
+div[class^=hui-] {
+	position: relative;
+	min-height: 1px;
+	background: #ccc;
+	padding-left: @grid-gutter-width /2;
+	padding-right: @grid-gutter-width /2;
+	margin-left: @grid-gutter-width/2;
+	margin-right: @grid-gutter-width/2;
+	padding-bottom: @margin-bottom/2;
+	&:last-child {
+		//margin-right: 0;
+		//right: 0;
+	}
+	&:first-child {
+		//margin-left: 0;
+	}
+	float: left;
+	.box-sizing(content-box);	
+}
+
+
+.calc-column(@columns, @gutter: @grid-gutter-width ) {
+	// @gutter = 2%
+	// @columns = 5  >  10 stron
+	//
+	@width: (100% - (@gutter*(@columns*2)))/@columns;
+	width: @width;
+}
+.calc-column-flex(@init, @gutter: @grid-gutter-width) {
+	
+	width: @init - (@gutter*2);
+}
+
+// *** 0. 10%
+.hui-10 {
+	.calc-column(10);
+}
+
+// *** 1. 20%
+
+.hui-20 {
+	.calc-column(5);
+}
+
+// *** 2. 25%
+.hui-25 { 
+	.calc-column(4);
+}
+
+// *** 3. 33% + last column fix
+.hui-33 {
+	.calc-column(3);
+}
+// *** 4. 50%
+.hui-50 {
+	.calc-column(2);
+}
+// *** 5. 100%
+.hui-100 {
+	.calc-column(1);
+}
+
+// *** 6. 75%
+.hui-75 {
+	.calc-column-flex(75%);
+}
+
+// *** 7. 60%
+.hui-60 {
+	.calc-column-flex(60%);
+}
+
+// *** 8.
+.hui-40 {
+	.calc-column-flex(40%);
+}
+
+// *** 8.
+.hui-80 {
+	.calc-column-flex(80%);
+}
+// *** 8.
+.hui-70 {
+	.calc-column-flex(70%);
+}
+// *** 8.
+.hui-30 {
+	.calc-column-flex(30%);
+}
